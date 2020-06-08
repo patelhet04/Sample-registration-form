@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/css/material-bootstrap.css" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="bootstrap-tagsinput.css" />
+
+    <title>Registration</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+                <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                    <h2 id="heading">Registration</h2>
+                    <form id="msform">
+                        <!-- progressbar -->
+                        <ul id="progressbar">
+                            <li class="active" id="account"><strong>Account</strong></li>
+                            <li id="personal"><strong>Address</strong></li>
+                            <li id="education"><strong>Education</strong></li>
+                            <li id="image"><strong>Image</strong></li>
+
+                        </ul>
+                        <!-- fieldsets -->
+                        <fieldset>
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Account Information:</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Step 1 - 4</h2>
+                                    </div>
+                                </div>
+                                <label class="fieldlabels">Email: </label>
+                                <input type="email" name="email" placeholder="Email Id" /><label
+                                    class="fieldlabels">Full Name: </label>
+                                <input type="text" name="fname" placeholder="Full Name" required />
+                                <label class="fieldlabels">Contact No.: </label>
+                                <input type="tel" name="phno" placeholder="Contact No." />
+                                <label class="fieldlabels">Date of Birth </label>
+                                <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
+                                    <input name="dob" class="form-control" type="text" readonly />
+                                    <span class="input-group-addon"><i class="fa fa-calendar"
+                                            aria-hidden="true"></i></span>
+                                </div>
+                            </div>
+                            <input type="button" name="next" class="next action-button" value="Next" />
+                        </fieldset>
+                        <fieldset>
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Address:</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Step 2 - 4</h2>
+                                    </div>
+                                </div>
+                                <label class="fieldlabels">Current Address</label>
+                                <textarea id="caddress" name="caddress" style="height: 100px;"></textarea>
+                                <label class="fieldlabels">Permanent Address </label>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" name="checkBox" class="custom-control-input"
+                                        id="defaultUnchecked" onclick="fillPermanent(this.form)" />
+                                    <label class="custom-control-label" for="defaultUnchecked">Same as above</label>
+                                </div>
+                                <textarea id="paddress " name="paddress" style="height: 100px;"></textarea>
+                            </div>
+                            <input type="button" name="next" class="next action-button" value="Next" />
+                            <input type="button" name="previous" class="previous action-button-previous"
+                                value="Previous" />
+                        </fieldset>
+                        <fieldset>
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Educational Details</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Step 3 - 4</h2>
+                                    </div>
+                                </div>
+                                <label class="fieldlabels">Education</label>
+                                <select name="degree" class="browser-default custom-select">
+                                    <option selected> </option>
+                                    <option value="1">BTech</option>
+                                    <option value="2">MTech</option>
+                                    <option value="3">PhD</option>
+                                </select>
+                                <label class="fieldlabels">Skills</label>
+                                <ul id="list"></ul>
+                                <input type="text" id="txt" placeholder="Enter you skills">
+                                <label class="fieldlabels">Upload Your Resume:</label> <input type="file" name="resume">
+                                <label class="fieldlabels">Educational Documents(Multiple files allowed)</label> <input
+                                    type="file" name="docs" multiple>
+                            </div>
+                            <input type="button" name="next" class="next action-button" value="Next" />
+                            <input type="button" name="previous" class="previous action-button-previous"
+                                value="Previous" />
+                        </fieldset>
+                        <fieldset>
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Upload Image</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Step 4 - 4</h2>
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <label class="fieldlabels">Upload Your Image:</label><input type='file'
+                                    onchange="readURL(this);" />
+                                <img id="profile" src="img/images.png" alt="your image" />
+                                <hr>
+                            </div>
+                            <input type="button" name="preview" class="display" value="Preview"
+                                onclick="displayForm()" />
+                            <input type="button" name="previous" class="previous action-button-previous"
+                                value="Previous" />
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
